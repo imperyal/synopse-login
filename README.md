@@ -1,6 +1,6 @@
-# synopse-login
+# synopse-login (jQuery)
 
-- Based on RangerX's code ( https://synopse.info/forum/viewtopic.php?pid=2995#p2995 )
+- Based on RangerX's code (https://synopse.info/forum/viewtopic.php?pid=2995#p2995)
 - Requires JQuery
 - Requires sha256 (https://github.com/emn178/js-sha256)
 - crc32 code included (from https://stackoverflow.com/questions/18638900/javascript-crc32)
