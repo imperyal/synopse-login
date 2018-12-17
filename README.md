@@ -10,14 +10,14 @@
 Example usage:
 
 -> Config variables (set before using the class)
-```
+```javascript
 var G_SERVER_URL  = "http://127.0.0.1:8080";
 var G_SERVER_ROOT = "root";
 var G_MAIN_URL    = G_SERVER_URL + '/' + G_SERVER_ROOT;   // Main URL
 ```
 
 -> Login
-``` 
+```javascript
 const APP_Login = new SYN_login;
 APP_Login.login(userName, userPass, F_loginResult);
 
