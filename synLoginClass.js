@@ -45,9 +45,9 @@ class SYN_login {
 
         let self = this;
     
-        this.setAjaxPrefilter();
+        self.setAjaxPrefilter();
 
-        this.CloseSession(); // try to close previously opened session
+        self.CloseSession(); // try to close previously opened session
     
         currDate    = new Date();
         clientnonce = currDate.getTime() / (1000 * 60 * 5); // valid for 5*60*1000 ms = 5 minutes;
@@ -106,24 +106,25 @@ class SYN_login {
 
 
     InitSession() {
-        localStorage.removeItem(self.getPrefixed('SESSION_ID'));
-        localStorage.removeItem(self.getPrefixed('SESSION_PRIVATE_KEY'));
-        localStorage.removeItem(self.getPrefixed('SESSION_LAST_TICK_COUNT'));
-        localStorage.removeItem(self.getPrefixed('SESSION_TICK_COUNT_OFFSET'));
-        localStorage.removeItem(self.getPrefixed('SESSION_USERNAME'));
+        localStorage.removeItem(this.getPrefixed('SESSION_ID'));
+        localStorage.removeItem(this.getPrefixed('SESSION_PRIVATE_KEY'));
+        localStorage.removeItem(this.getPrefixed('SESSION_LAST_TICK_COUNT'));
+        localStorage.removeItem(this.getPrefixed('SESSION_TICK_COUNT_OFFSET'));
+        localStorage.removeItem(this.getPrefixed('SESSION_USERNAME'));
         return true;
     }
     
     CloseSession() {
         self = this;
 
-        if (!this.getValue_FromNameAsInt('SESSION_ID')) return;
+        if (!self.getValue_FromNameAsInt('SESSION_ID')) return;
     
         $.ajax({
             type:     "GET",
             dataType: "json",
             url:      G_MAIN_URL + '/auth',
-            data:     {'session': this.getValue_FromNameAsInt('SESSION_ID'), 'UserName': this.getValue_FromName('SESSION_USERNAME')},
+            data:     {'session': self.getValue_FromNameAsInt('SESSION_ID'), 
+                       'UserName': self.getValue_FromName('SESSION_USERNAME')},
             timeout:  2000,
             success:  self.InitSession,
             error:    self.InitSession
